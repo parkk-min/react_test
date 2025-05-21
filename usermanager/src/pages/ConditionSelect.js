@@ -16,15 +16,16 @@ export default function ConditionSelect() {
     });
 
     const handleCheckbox = (e) => {
-        const { name, checked } = e.target;
-        setCheckboxCondition(s => ({
-            ...s,
-            [name]: checked
+        const { name, checked } = e.target; // e.target에서 name과 checked 값을 추출해서 상태를 업데이트
+        setCheckboxCondition(state => ({
+            ...state, // 기존 상태를 복사
+            [name]: checked // 해당 name(addr 또는 birthyear)의 상태만 업데이트
         }));
     };
 
     const handleSelect = () => {
-        setSelectedCondition(checkboxCondition);
+        setSelectedCondition(checkboxCondition); 
+        // 현재 체크 상태(checkboxCondition)를 선택된 조건(selectedCondition)에 저장
     };
 
     return (

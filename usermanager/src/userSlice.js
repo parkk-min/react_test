@@ -6,9 +6,12 @@ const userSlice = createSlice({
         list: [],
     },
     reducers: {
+        setList(state,action){
+            state.list = action.payload;
+        }
 
     }
 });
 
-export const { } = userSlice.actions;
+export const { setList } = userSlice.actions;
 export default userSlice;
