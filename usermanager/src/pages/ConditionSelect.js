@@ -1,8 +1,8 @@
-import { Outlet } from "react-router-dom";
-import DetailCondition from "./DetailCondition";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export default function ConditionSelect() {
+    const navigate = useNavigate();
 
     const [checkboxCondition, setCheckboxCondition] = useState({
         addr: false,
@@ -25,6 +25,7 @@ export default function ConditionSelect() {
 
     const handleSelect = () => {
         setSelectedCondition(checkboxCondition); 
+        navigate("/search/detail-condition");
         // 현재 체크 상태(checkboxCondition)를 선택된 조건(selectedCondition)에 저장
     };
 
@@ -42,9 +43,7 @@ export default function ConditionSelect() {
                 </input></span>
             <button onClick={handleSelect}>조건선택</button>
             <br></br><br></br>
-            <DetailCondition conditions={selectedCondition}></DetailCondition>
-            <Outlet />
+            <Outlet context={{selectedCondition}}></Outlet>
         </div>
     )
-
 };

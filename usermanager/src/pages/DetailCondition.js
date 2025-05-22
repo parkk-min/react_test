@@ -1,24 +1,28 @@
 import { useState } from "react";
 import apiClient from "../api/apiClient";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setList } from "../userSlice";
+import { useNavigate, useOutletContext } from "react-router-dom";
 
-export default function DetailCondition({ conditions }) {
+export default function DetailCondition() {
   const dispatch = useDispatch();
-  const userList = useSelector((state) => state.user.list);
+  const navigate = useNavigate();
+  const { selectedCondition } = useOutletContext();
+
   const [addr, setAddr] = useState("");
   const [birthyear, setBirthyear] = useState("");
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    if (conditions.addr && !conditions.birthyear) {
+    navigate("/displayUserInfo")
+    if (selectedCondition.addr && !selectedCondition.birthyear) {
       try {
         const response = await apiClient.get("/userinfo/addr/" + addr);
         dispatch(setList(response.data));
       } catch (error) {
         console.log(error);
       }
-    } else if (!conditions.addr && conditions.birthyear) {
+    } else if (!selectedCondition.addr && selectedCondition.birthyear) {
       try {
         const response = await apiClient.get(
           "/userinfo/birthyear/" + birthyear
@@ -27,7 +31,7 @@ export default function DetailCondition({ conditions }) {
       } catch (error) {
         console.log(error);
       }
-    } else if (conditions.addr && conditions.birthyear) {
+    } else if (selectedCondition.addr && selectedCondition.birthyear) {
       try {
         const response = await apiClient.get("/userinfo/addr-birthyear", {
           params: {
@@ -45,7 +49,7 @@ export default function DetailCondition({ conditions }) {
   return (
     <div>
       <form onSubmit={handleSearch}>
-        {conditions.addr && (
+        {selectedCondition.addr && (
           <div>
             지역:
             <input
@@ -56,11 +60,11 @@ export default function DetailCondition({ conditions }) {
             />
           </div>
         )}
-        {conditions.birthyear && (
+        {selectedCondition.birthyear && (
           <div>
             출생년도:
             <input
-              type="text"
+              type="number"
               name="birthyear"
               value={birthyear}
               onChange={(e) => setBirthyear(e.target.value)}
@@ -69,17 +73,7 @@ export default function DetailCondition({ conditions }) {
         )}
         <button type="submit">검색</button>
       </form>
-      {/* <div>
-        {userList.length === 0 && <p>데이터가 없습니다.</p>}
-        {userList.map((user, index) => (
-          <div key={index}>
-            <p>이름: {user.name}</p>
-            <p>지역: {user.addr}</p>
-            <p>출생년도: {user.birthyear}</p>
-            <hr />
-          </div>
-        ))}
-      </div> */}
+
     </div>
   );
 }

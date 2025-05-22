@@ -1,7 +1,7 @@
 export default function Home() {
     return (
         <div>
-            <p>고객관리 홈입니다.</p>
+            <p>It's a customer management hose.</p>
         </div>
     )
 };

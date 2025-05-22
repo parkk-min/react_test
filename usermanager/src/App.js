@@ -5,6 +5,10 @@ import Home from "./pages/Home";
 import ConditionSelect from "./pages/ConditionSelect";
 import DetailCondition from "./pages/DetailCondition";
 import DisplayUserInfo from "./pages/DisplayUserInfo";
+import DisplayBuyInfo from "./pages/DisplayBuyInfo";
+import CreateUserInfo from "./pages/CreateUserInfo";
+import Join from "./pages/Join";
+import BuyUserInfo from "./pages/BuyUserInfo";
 
 function App() {
   return (
@@ -15,7 +19,12 @@ function App() {
           <Route path="/search" element={<ConditionSelect />}>
             <Route path="/search/detail-condition" element={<DetailCondition />} />
           </Route>
-          <Route path="/displayInfo" element={<DisplayUserInfo />} />
+          <Route path="/displayUserInfo" element={<DisplayUserInfo />} />
+          <Route path="/displayBuyInfo/:userid" element={<DisplayBuyInfo />} />
+          <Route path="join" element={<Join />}>
+            <Route path="/join/create-userinfo" element={<CreateUserInfo />} />
+            <Route path="/join/buy-userinfo" element={<BuyUserInfo />} />
+          </Route>
         </Route>
       </Routes>
     </>
