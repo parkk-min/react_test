@@ -3,16 +3,16 @@ import { createSlice } from "@reduxjs/toolkit";
 const userSlice = createSlice({
     name: "user",
     initialState: {
-        list: [],
-        list2: [],
+        setlist: [],
+        buylist: [],
         addlist: []
     },
     reducers: {
         setList(state, action) {
-            state.list = action.payload;
+            state.setlist = action.payload;
         },
         buyList(state, action) {
-            state.list2 = action.payload;
+            state.buylist = action.payload;
         },
         addList(state, action) {
             state.addlist.push(action.payload);

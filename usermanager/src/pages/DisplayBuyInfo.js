@@ -6,7 +6,7 @@ import { Link, useParams } from "react-router-dom";
 
 export default function DisplayBuyInfo() {
     const { userid } = useParams();
-    const buylist = useSelector((state) => state.user.list2);
+    const bl = useSelector((state) => state.user.buylist);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -27,8 +27,8 @@ export default function DisplayBuyInfo() {
 
     return (
         <div>
-            {buylist.length === 0 && <p>데이터가 없습니다.</p>}
-            {buylist.map((user, index) => (
+            {bl.length === 0 && <p>데이터가 없습니다.</p>}
+            {bl.map((user, index) => (
                 <div key={index}>
                     <hr />
                     <p>번호: {user.id}</p>

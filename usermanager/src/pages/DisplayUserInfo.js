@@ -2,12 +2,12 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 export default function DisplayUserInfo() {
-    const userList = useSelector((state) => state.user.list);
+    const sl = useSelector((state) => state.user.setlist);
 
     return (
         <div>
-            {userList.length === 0 && <p>데이터가 없습니다.</p>}
-            {userList.map((user, index) => (
+            {sl.length === 0 && <p>데이터가 없습니다.</p>}
+            {sl.map((user, index) => (
                 <div key={index}>
                     <hr />
                     <p>id: {user.id}</p>
