@@ -9,7 +9,6 @@ export default function ConditionSelect() {
         birthyear: false
     });
 
-
     const [selectedCondition, setSelectedCondition] = useState({
         addr: false,
         birthyear: false
@@ -24,26 +23,26 @@ export default function ConditionSelect() {
     };
 
     const handleSelect = () => {
-        setSelectedCondition(checkboxCondition); 
+        setSelectedCondition(checkboxCondition);
         navigate("/search/detail-condition");
         // 현재 체크 상태(checkboxCondition)를 선택된 조건(selectedCondition)에 저장
     };
 
     return (
         <div>
-            <span>지역:
+            <span>Region:
                 <input type="checkbox" name="addr"
                     checked={checkboxCondition.addr}
                     onChange={handleCheckbox}>
                 </input></span>
-            <span>출생년도:
+            <span>Birthyear:
                 <input type="checkbox" name="birthyear"
                     checked={checkboxCondition.birthyear}
                     onChange={handleCheckbox}>
                 </input></span>
-            <button onClick={handleSelect}>조건선택</button>
+            <button onClick={handleSelect}>Select</button>
             <br></br><br></br>
-            <Outlet context={{selectedCondition}}></Outlet>
+            <Outlet context={{ selectedCondition }}></Outlet>
         </div>
     )
 };

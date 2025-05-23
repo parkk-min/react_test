@@ -5,7 +5,8 @@ const userSlice = createSlice({
     initialState: {
         setlist: [],
         buylist: [],
-        addlist: []
+        addlist: [],
+        addbuy: []
     },
     reducers: {
         setList(state, action) {
@@ -16,10 +17,13 @@ const userSlice = createSlice({
         },
         addList(state, action) {
             state.addlist.push(action.payload);
+        },
+        addbuy(state, action) {
+            state.addbuy.push(action.payload);
         }
 
     }
 });
 
-export const { setList, buyList, addList } = userSlice.actions;
+export const { setList, buyList, addList, addbuy } = userSlice.actions;
 export default userSlice;

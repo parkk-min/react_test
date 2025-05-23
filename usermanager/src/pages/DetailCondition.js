@@ -51,7 +51,7 @@ export default function DetailCondition() {
       <form onSubmit={handleSearch}>
         {selectedCondition.addr && (
           <div>
-            지역:
+            Region:
             <input
               type="text"
               name="addr"
@@ -62,7 +62,7 @@ export default function DetailCondition() {
         )}
         {selectedCondition.birthyear && (
           <div>
-            출생년도:
+            Birthyear:
             <input
               type="number"
               name="birthyear"
@@ -71,7 +71,7 @@ export default function DetailCondition() {
             />
           </div>
         )}
-        <button type="submit">검색</button>
+        <button type="submit">Search</button>
       </form>
 
     </div>

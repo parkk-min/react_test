@@ -6,7 +6,7 @@ export default function DisplayUserInfo() {
 
     return (
         <div>
-            {sl.length === 0 && <p>데이터가 없습니다.</p>}
+            {sl.length === 0 && <p>The data is not available.</p>}
             {sl.map((user, index) => (
                 <div key={index}>
                     <hr />
@@ -17,7 +17,7 @@ export default function DisplayUserInfo() {
                     <p>height: {user.height}</p>
                     <p>mobile1: {user.mobile1} {user.mobile2}</p>
                     <p>mdate: {user.mdate}</p>
-                    <Link to={`/displayBuyInfo/${user.id}`}>구매기록 확인</Link>
+                    <Link to={`/displayBuyInfo/${user.id}`}>RecordCheck.</Link>
                     <hr />
                 </div>
             ))}

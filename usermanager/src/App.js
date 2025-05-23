@@ -21,7 +21,7 @@ function App() {
           </Route>
           <Route path="/displayUserInfo" element={<DisplayUserInfo />} />
           <Route path="/displayBuyInfo/:userid" element={<DisplayBuyInfo />} />
-          <Route path="join" element={<Join />}>
+          <Route path="/join" element={<Join />}>
             <Route path="/join/create-userinfo" element={<CreateUserInfo />} />
             <Route path="/join/buy-userinfo" element={<BuyUserInfo />} />
           </Route>

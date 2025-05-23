@@ -27,21 +27,20 @@ export default function DisplayBuyInfo() {
 
     return (
         <div>
-            {bl.length === 0 && <p>데이터가 없습니다.</p>}
+            {bl.length === 0 && <p>The data is not available.</p>}
             {bl.map((user, index) => (
                 <div key={index}>
                     <hr />
-                    <p>번호: {user.id}</p>
-                    <p>이름: {user.userid}</p>
-                    <p>상품이름: {user.prodname}</p>
-                    <p>그룹이름: {user.groupname}</p>
-                    <p>가격: {user.price}</p>
-                    <p>수량: {user.amount}</p>
+                    <p>Number: {user.id}</p>
+                    <p>Name: {user.userid}</p>
+                    <p>ProductName: {user.prodname}</p>
+                    <p>GroupName: {user.groupname}</p>
+                    <p>Price: {user.price}</p>
+                    <p>Amount: {user.amount}</p>
                     <hr />
                 </div>
             ))}
-            <Link to="/displayUserInfo">고객정보 다시보기</Link>
+            <Link to="/displayUserInfo">Return</Link>
         </div>
     )
-
 };
