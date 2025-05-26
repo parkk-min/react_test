@@ -5,5 +5,4 @@ export default function Home() {
             <p>It's madang Home</p>
         </div>
     )
-
 };

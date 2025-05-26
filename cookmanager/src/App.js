@@ -1,17 +1,24 @@
 import { Route, Routes } from "react-router-dom";
 import MainLayout from "./pages/MainLayout";
 import Home from "./pages/Home";
+import SelectOrderInfo from "./pages/SelectOrderInfo";
+import DisplayOrderInfo from "./pages/DisplayOrderInfo";
+import DisplayBookInfo from "./pages/DisplayBookInfo";
 
 function App() {
 
   return (
-    <div>
+    <>
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />}></Route>
+          <Route path="/orderinfo" element={<SelectOrderInfo />}>
+            <Route path="/orderinfo/data" element={<DisplayOrderInfo />}></Route>
+            <Route path="/orderinfo/bookinfo/:bookid" element={<DisplayBookInfo />}></Route>
+          </Route>
         </Route>
       </Routes>
-    </div>
+    </>
   );
 }
 
