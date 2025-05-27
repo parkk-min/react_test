@@ -13,6 +13,7 @@ const orderSlice = createSlice({
     setBookInfo(state, action) {
       state.bookInfo = action.payload;
     },
+
   },
 });
 
